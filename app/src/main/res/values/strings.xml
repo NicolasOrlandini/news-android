@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">News</string>
+    <string name="news_title">News</string>
+    <string name="news_loading_title">Chargement en cours…</string>
+    <string name="btn_to_web_txt">Voir l\'article complet</string>
+</resources>

@@ -1,0 +1,8 @@
+/build
+/dev
+/developpement
+/release
+/prod
+/preprod
+/production
+/.externalNativeBuild
