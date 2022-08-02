@@ -5,7 +5,7 @@ Cette application permet d'accéder aux dernières news en français.
 Language Kotlin
 Architecture MVVM (Model View ViewModel)
 
-### Architecture
+## Architecture
 
 L'Architecture est la suivante :
 
