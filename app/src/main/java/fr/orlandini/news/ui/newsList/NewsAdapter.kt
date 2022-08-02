@@ -61,17 +61,24 @@ class NewsAdapter(private val onClickListener: OnClickListener) :
         }
     }
 
-    // Mise à jour des news
+    // Mise à jour des news sur l'interface
     fun setItems(newList: List<Article>?) {
         if (newList == null) {
             Log.w("NewsAdapter", "la liste est null, aucune mise à jour")
             return
         }
+        /*
+         Récupération des éléments modifiés entre l'ancienne liste et la nouvelle en
+         paramètre de la methode
+         */
         val diffCallback = NewsDiffCallback(articles, newList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
 
+        // Mise à jour des données
         articles.clear()
         articles.addAll(newList)
+
+        // Envoi des mises à jour a effectuer sur l'interface à l'adapter
         diffResult.dispatchUpdatesTo(this)
     }
 

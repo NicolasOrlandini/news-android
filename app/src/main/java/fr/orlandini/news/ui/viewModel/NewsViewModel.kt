@@ -38,7 +38,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
             override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
                 Log.d(
                     "NewsListViewModel",
-                    "Réponse requête news : ${response.body().toString()}"
+                    "onResponse : ${response.code()}"
                 )
 
                 loading.value = false

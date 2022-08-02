@@ -7,7 +7,7 @@ import fr.orlandini.news.data.model.Article
 /**
  * Cette classe permet de vérifier si les éléments à la même position dans de listes sont identiques
  * ou non
- * Utilisé dans l'adapteur, permet de mettre à jour seulement les éléments modifiés sur l'affichage
+ * Utilisé dans l'adapteur, permet de recharger seulement les éléments modifiés sur l'affichage
  */
 class NewsDiffCallback(private val mOldList: List<Article>,
                        private val mNewList: List<Article>) : DiffUtil.Callback() {
@@ -27,7 +27,7 @@ class NewsDiffCallback(private val mOldList: List<Article>,
     // Retourne la taille de la liste
     private fun getListSize(list: List<Article>) = list.size
 
-    // Vérifier si l'item est bien à la même position
+    // Vérifie si l'item est bien à la même position
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val newItem = mNewList[newItemPosition]
         val oldItem = mOldList[oldItemPosition]
@@ -36,7 +36,7 @@ class NewsDiffCallback(private val mOldList: List<Article>,
         return same
     }
 
-    // Vérifier si le contenue de l'item est identique
+    // Vérifie si le contenue de l'item est identique
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val newItem = mNewList[newItemPosition]
         val oldItem = mOldList[oldItemPosition]
