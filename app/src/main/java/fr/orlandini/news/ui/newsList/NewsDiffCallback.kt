@@ -32,22 +32,16 @@ class NewsDiffCallback(private val mOldList: List<Article>,
         val newItem = mNewList[newItemPosition]
         val oldItem = mOldList[oldItemPosition]
         val same = (oldItem.url == newItem.url)
-        Log.d(TAG, "areItemsTheSame : $same - oldItem url : ${oldItem.url} vs newItem url : ${newItem.url}")
+        Log.d(TAG, "==== areItemsTheSame : $same :\noldItem url : ${oldItem.url}\nnewItem url : ${newItem.url}")
         return same
     }
 
-    // Vérifie si le contenue de l'item est identique
+    // Vérifie si le contenu de l'item est identique
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val newItem = mNewList[newItemPosition]
         val oldItem = mOldList[oldItemPosition]
-        val same = (oldItem.author == newItem.author
-                && oldItem.title == newItem.title
-                && oldItem.description == newItem.description
-                && oldItem.url == newItem.url
-                && oldItem.urlToImage == newItem.urlToImage
-                && oldItem.publishedAt == newItem.publishedAt
-                && oldItem.content == newItem.content)
-        Log.d(TAG, "areContentsTheSame : same = $same")
+        val same = oldItem == newItem
+        Log.d(TAG, "==== areContentsTheSame : same = $same")
         return same
     }
 

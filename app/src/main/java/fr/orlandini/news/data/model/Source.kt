@@ -1,8 +1,9 @@
 package fr.orlandini.news.data.model
 
-class Source {
-    val id: String? = null
-    val name: String? = null
+data class Source(
+    val id: String?,
+    val name: String?
+) {
 
     override fun toString(): String {
         return "Source(id=$id, name=$name)"
