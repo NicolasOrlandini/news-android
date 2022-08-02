@@ -9,19 +9,27 @@ Architecture MVVM (Model View ViewModel)
 
 L'Architecture est la suivante :
 
-Le model : Il s'agit ici de data class (Article et Source), la data class implémente par défaut les méthodes `equals()` ainsi que `toString()`, pratique pour le cas présent qui ne nécessite pas de traitement spécial.   
+### Model   
+   
+Il s'agit ici de data class (Article et Source), la data class implémente par défaut les méthodes `equals()` ainsi que `toString()`, pratique pour le cas présent qui ne nécessite pas de traitement spécial.   
+   
+### Repository   
    
 Le repository accède aux données pour les rendre accéssible au reste de l'application, ici il s'agit de l'API News.   
+   
+### ViewModel   
    
 Le ViewModel fait le lien entre les données et les vues, il contient les différentes données à jour.   
 Ici, le même ViewModel est partagé entre les 2 fragments puisqu'ils partagent les mêmes données. En particulier l'objet selectedItem qui permet de déterminer la news a afficher dans la page de détail. Il est créé une seule fois au premier besoin puis le même est réutilisé à chaque besoin dans les 2 fragments avec `by activityViewModels`.   
    
 Dès qu'une donnée est modifiée dans le ViewModel (quelle que soit son origine), la modification est transmise aux vues grâce aux observers   
    
-Pour optimiser le code et le rendre plus lisible, j'utilise du databinding.   
+### View   
+   
+Pour optimiser le code et le rendre plus lisible, j'utilise du data binding.   
 Les données à afficher dans la vue sont spécifiées directement dans le XML et donc mises à jour automatiquement. On a également accès aux composants de la vue dans le code pour faire des actions dans le code (chargement d'image, click).   
-L'objet Article est utilisé pour afficher les données à l'écran sur la page de détail.   
-Le ViewModel est directement utilisé dans le fragment qui contient la liste pour afficher ou non la page de chargement.   
+L'objet Article est utilisé pour afficher les données à l'écran sur la page de détail (NewsDetailFragment).   
+Le ViewModel est directement utilisé dans la vue qui contient la liste pour afficher ou non la page de chargement (NewsListFragment).   
    
 ## choix techniques   
    
