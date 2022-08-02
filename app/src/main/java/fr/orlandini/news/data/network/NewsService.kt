@@ -23,7 +23,7 @@ interface NewsService {
      */
     @Headers("Authorization: ${BuildConfig.NEWS_KEY}")
     @GET("v2/top-headlines")
-    fun geTopNews(@Query("country") language: String): Call<NewsResponse>
+    fun geTopNews(@Query("country") country: String): Call<NewsResponse>
 
     companion object {
         // Instance statique de retrofit

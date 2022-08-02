@@ -25,14 +25,14 @@ class NewsServiceTest {
     @Test
     fun getTopNewsApiTest() {
 
-        val language = "fr"
+        val country = "fr"
 
-        val call: Call<NewsResponse> = NewsService.getInstance().geTopNews(language)
+        val call: Call<NewsResponse> = NewsService.getInstance().geTopNews(country)
 
         // Test si la requête est bien de type GET
         assertEquals("GET", call.request().method)
         // Test si le paramètre "langage"
-        assertEquals(language, call.request().url.queryParameterValue(0))
+        assertEquals(country, call.request().url.queryParameterValue(0))
 
         // Exécution de la requête
         val response = call.execute()
